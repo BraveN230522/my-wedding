@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { About, Carousel, Event, Footer, FriendFamily, Gallery, NavBar, RSVP, Story, VideoModal } from './components'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <NavBar />
+      <Carousel />
+      <VideoModal />
+      <About />
+      <Story />
+      <Gallery />
+      <Event />
+      <FriendFamily />
+      <RSVP />
+      <Footer />
+      <i className='fa fa-2x fa-angle-down text-white scroll-to-bottom'></i>
+      <script src='js/main.js'></script>
+
+      <a href='/#' className='btn btn-lg btn-outline-primary btn-lg-square back-to-top'>
+        <i className='fa fa-angle-double-up'></i>
+      </a>
+    </>
+  )
 }
 
-export default App;
+export default App
