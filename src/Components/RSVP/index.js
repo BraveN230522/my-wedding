@@ -12,7 +12,7 @@ export const RSVP = () => {
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState()
   const {
-    formState: { isDirty, dirtyFields },
+    formState: { isDirty },
     register,
     handleSubmit,
     reset,
