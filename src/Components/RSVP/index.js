@@ -1,33 +1,62 @@
 import axios from 'axios'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
+const STATUS = {
+  SUCCESS: 'SUCCESS',
+  FAILED: 'FAILED',
+}
+const TIMEOUT = 3000
+
 export const RSVP = () => {
+  const [loading, setLoading] = useState(false)
+  const [status, setStatus] = useState()
   const {
+    formState: { isDirty, dirtyFields },
     register,
     handleSubmit,
+    reset,
     // formState: { errors },
   } = useForm({
     criteriaMode: 'all',
   })
+
+  useEffect(() => {
+    if (isDirty) setStatus(undefined)
+  }, [isDirty])
+
   const onSubmit = (values) => {
-    axios({
-      method: 'post',
-      headers: { 'X-Api-Key': 'CaOs4SsUE6LNQbdGukuqMrZdpwiGx!@HIkzCg@kYEzuuycelAcBuVIRariThJ9-9' },
-      url: 'https://sheet.best/api/sheets/6a56d6a1-3859-4dd0-a19c-de8e87f63f3f',
-      data: {
-        Name: values.name,
-        Email: values.email,
-        Guests: values.numOfGuests,
-        Confirm: values.confirm,
-      },
-    })
-      .then(function (response) {
-        console.log(response)
+    setLoading(true)
+    setTimeout(() => {
+      axios({
+        method: 'post',
+        url: 'https://my-wedding-api.vercel.app/api/invitations',
+        data: {
+          name: values.name,
+          email: values.email,
+          numOfGuests: values.numOfGuests,
+          isAttending: values.confirm,
+          theirMessage: values.message,
+        },
       })
-      .catch(function (error) {
-        console.log(error)
-      })
-    console.log({ values })
+        .then(function (response) {
+          setStatus(STATUS.SUCCESS)
+          reset({
+            name: '',
+            email: '',
+            numOfGuests: '',
+            confirm: '',
+            message: '',
+          })
+        })
+        .catch(function (error) {
+          setStatus(STATUS.FAILED)
+          console.log(error)
+        })
+        .finally(() => {
+          setLoading(false)
+        })
+    }, TIMEOUT)
   }
   return (
     <div className='container-fluid py-5' id='rsvp'>
@@ -47,6 +76,7 @@ export const RSVP = () => {
                   <div className='form-group col-sm-6'>
                     <input
                       {...register('name')}
+                      id='name'
                       type='text'
                       className='form-control bg-secondary border-0 py-4 px-3'
                       placeholder='Your Name'
@@ -110,12 +140,19 @@ export const RSVP = () => {
                     required='required'
                   ></textarea>
                 </div>
-                <div>
-                  <button className='btn btn-primary font-weight-bold py-3 px-5' type='submit'>
-                    Submit
-                  </button>
-                </div>
+                <button className='btn btn-primary font-weight-bold py-3 px-5' type='submit' disabled={loading}>
+                  <span className=' font-weight-bold '>Submit</span>
+                  {loading && (
+                    <div
+                      className='spinner-border text-light position-absolute'
+                      style={{ left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto' }}
+                      role='status'
+                    />
+                  )}
+                </button>
               </form>
+              {status === STATUS.SUCCESS && <p className='mt-2 text-primary'>Thanks for being awesome!</p>}
+              {status === STATUS.FAILED && <p className='mt-2 text-danger'>Please try to resend it again!</p>}
             </div>
           </div>
         </div>
