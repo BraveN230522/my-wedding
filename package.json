@@ -13,9 +13,10 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "/build",
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",
-    "build": "webpack --mode=production --node-env=production",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build:dev": "webpack --mode=development",
