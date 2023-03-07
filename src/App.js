@@ -7,12 +7,12 @@ function App() {
       <NavBar />
       <Carousel />
       <VideoModal />
+      <RSVP />
       <About />
       <Story />
       <Gallery />
       <Event />
       <FriendFamily />
-      <RSVP />
       <Footer />
       <i className='fa fa-2x fa-angle-down text-white scroll-to-bottom'></i>
       <script src='js/main.js'></script>

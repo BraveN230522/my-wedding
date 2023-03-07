@@ -18,7 +18,7 @@ export const About = () => {
                 labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor elitr.
               </p>
               <h3 className='font-secondary font-weight-normal text-muted mb-3'>
-                <i className='fa fa-male text-primary pr-3'></i>Jack
+                <i className='fa fa-male text-primary pr-3'></i>Dung
               </h3>
               <div className='position-relative'>
                 <a className='btn btn-outline-primary btn-square mr-1' href='/#'>
@@ -62,7 +62,7 @@ export const About = () => {
                 labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor elitr.
               </p>
               <h3 className='font-secondary font-weight-normal text-muted mb-3'>
-                <i className='fa fa-female text-primary pr-3'></i>Rose
+                <i className='fa fa-female text-primary pr-3'></i>Ha
               </h3>
               <div className='position-relative'>
                 <a className='btn btn-outline-primary btn-square mr-1' href='/#'>
