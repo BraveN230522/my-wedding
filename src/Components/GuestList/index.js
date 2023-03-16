@@ -62,12 +62,12 @@ export const GuestList = () => {
           return (
             <tr key={item.id}>
               <th scope='row'>{index + 1}</th>
-              <td style={{ maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</td>
+              <td>{item.name}</td>
               <td style={{ width: 140, overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {item.isAttending === true ? 'Yes' : 'No'}
               </td>
               <td style={{ width: 30, overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.numOfGuests}</td>
-              <td style={{ maxWidth: 100, overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.email}</td>
+              <td>{item.email}</td>
               <td
                 onClick={() => handleSeeAll(item.id)}
                 style={{
