@@ -47,10 +47,10 @@ export const GuestList = () => {
         </tr>
       </thead>
       <tbody>
-        {data?.map((item) => {
+        {data?.map((item, index) => {
           return (
             <tr key={item.id}>
-              <th scope='row'>{item.id}</th>
+              <th scope='row'>{index + 1}</th>
               <td>{item.name}</td>
               <td>{item.isAttending === true ? 'Yes' : 'No'}</td>
               <td>{item.numOfGuests}</td>
