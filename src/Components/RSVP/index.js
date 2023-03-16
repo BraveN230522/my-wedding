@@ -7,7 +7,7 @@ const STATUS = {
   FAILED: 'FAILED',
 }
 const TIMEOUT = 3000
-const MAX_LENGTH = 255
+const MAX_LENGTH = 500
 const MAX_LENGTH_NAME = 28
 const MAX_LENGTH_EMAIL = 50
 
@@ -31,9 +31,9 @@ export const RSVP = () => {
   const onSubmit = (values) => {
     setLoading(true)
 
-    const message = values.message.slice(0, MAX_LENGTH)
-    const name = values.name.slice(0, MAX_LENGTH_NAME)
-    const email = values.email.slice(0, MAX_LENGTH_EMAIL)
+    const message = values.message.slice(0, MAX_LENGTH).trim()
+    const name = values.name.slice(0, MAX_LENGTH_NAME).trim()
+    const email = values.email.slice(0, MAX_LENGTH_EMAIL).trim()
 
     setTimeout(() => {
       axios({

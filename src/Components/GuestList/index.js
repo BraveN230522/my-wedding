@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 export const GuestList = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState()
+  const [seeAll, setSeeAll] = useState([])
 
   useEffect(() => {
     onCall()
@@ -25,6 +26,14 @@ export const GuestList = () => {
       })
   }
 
+  const handleSeeAll = (id) => {
+    if (seeAll.includes(id))
+      setSeeAll((prev) => {
+        return prev.filter((item) => item !== id)
+      })
+    else setSeeAll((prev) => [...prev, id])
+  }
+
   if (loading)
     return (
       <div className='d-flex justify-content-center align-items-center' style={{ height: '100vh' }}>
@@ -43,7 +52,9 @@ export const GuestList = () => {
           <th scope='col'>Is Attending</th>
           <th scope='col'>Guests</th>
           <th scope='col'>Email</th>
-          <th scope='col'>Message</th>
+          <th style={{ maxWidth: 100 }} scope='col'>
+            Message
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -51,11 +62,25 @@ export const GuestList = () => {
           return (
             <tr key={item.id}>
               <th scope='row'>{index + 1}</th>
-              <td>{item.name}</td>
-              <td>{item.isAttending === true ? 'Yes' : 'No'}</td>
-              <td>{item.numOfGuests}</td>
-              <td>{item.email}</td>
-              <td>{item.theirMessage}</td>
+              <td style={{ maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.name}</td>
+              <td style={{ width: 140, overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                {item.isAttending === true ? 'Yes' : 'No'}
+              </td>
+              <td style={{ width: 30, overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.numOfGuests}</td>
+              <td style={{ maxWidth: 100, overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.email}</td>
+              <td
+                onClick={() => handleSeeAll(item.id)}
+                style={{
+                  maxWidth: 300,
+                  wordWrap: seeAll.includes(item.id) ? 'break-word' : undefined,
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                }}
+                className={seeAll.includes(item.id) ? '' : 'message'}
+                title={item.theirMessage}
+              >
+                {item.theirMessage}
+              </td>
             </tr>
           )
         })}
