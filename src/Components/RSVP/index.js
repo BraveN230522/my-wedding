@@ -7,6 +7,9 @@ const STATUS = {
   FAILED: 'FAILED',
 }
 const TIMEOUT = 3000
+const MAX_LENGTH = 255
+const MAX_LENGTH_NAME = 28
+const MAX_LENGTH_EMAIL = 50
 
 export const RSVP = () => {
   const [loading, setLoading] = useState(false)
@@ -27,16 +30,21 @@ export const RSVP = () => {
 
   const onSubmit = (values) => {
     setLoading(true)
+
+    const message = values.message.slice(0, MAX_LENGTH)
+    const name = values.name.slice(0, MAX_LENGTH_NAME)
+    const email = values.email.slice(0, MAX_LENGTH_EMAIL)
+
     setTimeout(() => {
       axios({
         method: 'post',
         url: 'https://my-wedding-api.vercel.app/api/invitations',
         data: {
-          name: values.name,
-          email: values.email,
+          name: name,
+          email: email,
           numOfGuests: values.numOfGuests,
           isAttending: values.confirm === 'Yes',
-          theirMessage: values.message,
+          theirMessage: message,
         },
       })
         .then(function (response) {
@@ -81,6 +89,7 @@ export const RSVP = () => {
                       className='form-control bg-secondary border-0 py-4 px-3'
                       placeholder='Your Name'
                       required='required'
+                      maxLength={MAX_LENGTH_NAME}
                     />
                   </div>
                   <div className='form-group col-sm-6'>
@@ -90,6 +99,7 @@ export const RSVP = () => {
                       className='form-control bg-secondary border-0 py-4 px-3'
                       placeholder='Your Email'
                       required='required'
+                      maxLength={MAX_LENGTH_EMAIL}
                     />
                   </div>
                 </div>
@@ -138,6 +148,7 @@ export const RSVP = () => {
                     rows='5'
                     placeholder='Message'
                     required='required'
+                    maxLength={MAX_LENGTH}
                   ></textarea>
                 </div>
                 <button className='btn btn-primary font-weight-bold py-3 px-5' type='submit' disabled={loading}>

@@ -38,24 +38,12 @@ export const GuestList = () => {
     <table className='table'>
       <thead className='thead-dark position-sticky' style={{ zIndex: 1000, top: -1, left: 0, right: 0 }}>
         <tr>
-          <th className='position-sticky' style={{ top: 0 }} scope='col'>
-            #
-          </th>
-          <th className='position-sticky' style={{ top: 0 }} scope='col'>
-            Name
-          </th>
-          <th className='position-sticky' style={{ top: 0 }} scope='col'>
-            Is Attending
-          </th>
-          <th className='position-sticky' style={{ top: 0 }} scope='col'>
-            Guests
-          </th>
-          <th className='position-sticky' style={{ top: 0 }} scope='col'>
-            Email
-          </th>
-          <th className='position-sticky' style={{ top: 0 }} scope='col'>
-            Message
-          </th>
+          <th scope='col'>#</th>
+          <th scope='col'>Name</th>
+          <th scope='col'>Is Attending</th>
+          <th scope='col'>Guests</th>
+          <th scope='col'>Email</th>
+          <th scope='col'>Message</th>
         </tr>
       </thead>
       <tbody>
