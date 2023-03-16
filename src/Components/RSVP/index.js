@@ -35,7 +35,7 @@ export const RSVP = () => {
           name: values.name,
           email: values.email,
           numOfGuests: values.numOfGuests,
-          isAttending: values.confirm,
+          isAttending: values.confirm === 'Yes',
           theirMessage: values.message,
         },
       })

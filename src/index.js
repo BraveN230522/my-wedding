@@ -2,11 +2,24 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { GuestList } from './Components/GuestList'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+  },
+  {
+    path: '/invitations',
+    element: <GuestList />,
+  },
+])
 
 const root = ReactDOM.createRoot(document.getElementById('react-duoc-chua-!-khoi-soi-di-bac-oi'))
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 )
 

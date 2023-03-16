@@ -3,7 +3,7 @@ export const NavBar = () => {
     <nav className='navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5'>
       <a href='index.html' className='navbar-brand d-block d-lg-none'>
         <h1 className='font-secondary text-white mb-n2'>
-          Jack <span className='text-primary'>&</span> Rose
+          Dung <span className='text-primary'>&</span> Ha
         </h1>
       </a>
       <button type='button' className='navbar-toggler' data-toggle='collapse' data-target='#navbarCollapse'>
