@@ -12,15 +12,11 @@ export const About = () => {
         <div className='row m-0 mb-4 mb-md-0 pb-2 pb-md-0'>
           <div className='col-md-6 p-0 text-center text-md-right'>
             <div className='h-100 d-flex flex-column justify-content-center bg-secondary p-5'>
-              <h3 className='mb-3'>The Groom</h3>
-              <p>
-                Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos tempor rebum,
-                labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor elitr.
-              </p>
+              <h3 className=''>The Groom</h3>
               <h3 className='font-secondary font-weight-normal text-muted mb-3'>
-                <i className='fa fa-male text-primary pr-3'></i>Dung
+                <i className='fa fa-male text-primary pr-3'></i>Tuan Dung
               </h3>
-              <div className='position-relative'>
+              {/* <div className='position-relative'>
                 <a className='btn btn-outline-primary btn-square mr-1' href='/#'>
                   <i className='fab fa-twitter'></i>
                 </a>
@@ -33,7 +29,7 @@ export const About = () => {
                 <a className='btn btn-outline-primary btn-square' href='/#'>
                   <i className='fab fa-instagram'></i>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className='col-md-6 p-0' style={{ minHeight: '400px' }}>
@@ -56,15 +52,11 @@ export const About = () => {
           </div>
           <div className='col-md-6 p-0 text-center text-md-left'>
             <div className='h-100 d-flex flex-column justify-content-center bg-secondary p-5'>
-              <h3 className='mb-3'>The Bride</h3>
-              <p>
-                Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem at amet sea, eos tempor rebum,
-                labore amet ipsum sea lorem, stet rebum eirmod amet. Kasd clita kasd stet amet est dolor elitr.
-              </p>
+              <h3 className=''>The Bride</h3>
               <h3 className='font-secondary font-weight-normal text-muted mb-3'>
-                <i className='fa fa-female text-primary pr-3'></i>Ha
+                <i className='fa fa-female text-primary pr-3'></i>Thanh Ha
               </h3>
-              <div className='position-relative'>
+              {/* <div className='position-relative'>
                 <a className='btn btn-outline-primary btn-square mr-1' href='/#'>
                   <i className='fab fa-instagram'></i>
                 </a>
@@ -77,7 +69,7 @@ export const About = () => {
                 <a className='btn btn-outline-primary btn-square' href='/#'>
                   <i className='fab fa-instagram'></i>
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

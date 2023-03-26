@@ -12,7 +12,7 @@ function App() {
       <Story />
       <Gallery />
       <Event />
-      <FriendFamily />
+      {/* <FriendFamily /> */}
       <Footer />
       <i className='fa fa-2x fa-angle-down text-white scroll-to-bottom'></i>
       <script src='js/main.js'></script>

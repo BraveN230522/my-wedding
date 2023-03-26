@@ -36,12 +36,6 @@ export const NavBar = () => {
           <a href='#event' className='nav-item nav-link'>
             Event
           </a>
-          <a href='#family' className='nav-item nav-link'>
-            Family
-          </a>
-          <a href='#contact' className='nav-item nav-link'>
-            Contact
-          </a>
         </div>
       </div>
     </nav>

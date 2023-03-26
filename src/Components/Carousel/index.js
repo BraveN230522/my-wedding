@@ -17,7 +17,7 @@ export const Carousel = () => {
               style={{ objectFit: 'cover' }}
             />
             <div className='carousel-caption d-flex flex-column align-items-center justify-content-center'>
-              <div className='p-3' style={{ maxWidth: '900px' }}>
+              <div className='p-3' style={{ maxWidth: '900px', marginTop: '70%' }}>
                 <h1 className='display-1 font-secondary text-white mt-n3 mb-md-4'>Dung & Ha</h1>
                 <div className='d-inline-block border-top border-bottom border-light py-3 px-4'>
                   <h3 className='text-uppercase font-weight-normal text-white m-0' style={{ letterSpacing: '2px' }}>
@@ -35,7 +35,7 @@ export const Carousel = () => {
               style={{ objectFit: 'cover' }}
             />
             <div className='carousel-caption d-flex flex-column align-items-center justify-content-center'>
-              <div className='p-3' style={{ maxWidth: '900px' }}>
+              <div className='p-3 mt-40' style={{ maxWidth: '900px', marginTop: '70%' }}>
                 <h1 className='display-1 font-secondary text-white mt-n3 mb-md-4'>Dung & Ha</h1>
                 <div className='d-inline-block border-top border-bottom border-light py-3 px-4'>
                   <h3 className='text-uppercase font-weight-normal text-white m-0' style={{ letterSpacing: '2px' }}>

@@ -1,12 +1,12 @@
 export const Footer = () => {
   return (
-    <div className='container-fluid bg-dark text-white py-5' id='contact' style={{ marginTop: ' 90px' }}>
+    <div className='container-fluid bg-dark text-white py-5' id='contact' style={{}}>
       <div className='container text-center py-5'>
-        <div className='section-title position-relative text-center'>
+        <div className='section-title position-relative text-center' style={{ top: '55px' }}>
           <h1 className='font-secondary display-3 text-white'>Thank You</h1>
           <i className='far fa-heart text-white'></i>
         </div>
-        <div className='d-flex justify-content-center mb-4'>
+        {/* <div className='d-flex justify-content-center mb-4'>
           <a className='btn btn-lg btn-outline-light btn-lg-square mr-2' href='/#'>
             <i className='fab fa-twitter'></i>
           </a>
@@ -38,7 +38,7 @@ export const Footer = () => {
           <a className='text-primary' href='https://htmlcodex.com'>
             HTML Codex
           </a>
-        </p>
+        </p> */}
       </div>
     </div>
   )
