@@ -31,7 +31,7 @@ export const Story = () => {
               </div>
             </div>
             <div className='col-md-6 text-center text-md-left'>
-              <img className='img-fluid ml-md-3' src='img/story-2.PNG' alt='' />
+              <img className='img-fluid ml-md-3' src='img/story-2.png' alt='' />
             </div>
           </div>
           {/* <div className='row'>
