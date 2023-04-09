@@ -1,5 +1,5 @@
 import './App.css'
-import { About, Carousel, Event, Footer, FriendFamily, Gallery, NavBar, RSVP, Story, VideoModal } from './Components'
+import { About, Carousel, Event, Footer, Gallery, NavBar, RSVP, Story, VideoModal } from './Components'
 
 function App() {
   return (

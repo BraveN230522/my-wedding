@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { PrizeModal } from '../PrizeModal'
 
 const STATUS = {
   SUCCESS: 'SUCCESS',
@@ -14,6 +15,7 @@ const MAX_LENGTH_EMAIL = 50
 export const RSVP = () => {
   const [loading, setLoading] = useState(false)
   const [status, setStatus] = useState()
+  const [giftName, setGiftName] = useState('')
   const {
     formState: { isDirty },
     register,
@@ -49,6 +51,45 @@ export const RSVP = () => {
       })
         .then(function (response) {
           setStatus(STATUS.SUCCESS)
+          if (response.data.data.gift) {
+            switch (response.data.data.gift) {
+              case 'BAO_TIN':
+                setGiftName('Bảo Tín Minh Châu trị giá 5.000.000 vnđ')
+
+                break
+              case 'NOBILI':
+                setGiftName('NOBILI discount 35%')
+
+                break
+              case 'CHAPPIN':
+                setGiftName('CHAPPIN voucher trị giá 1.000.000 vnđ')
+
+                break
+              case 'SKYMOND':
+                setGiftName('SKYMOND LUXURY voucher trị giá 3.000.000 vnđ')
+
+                break
+              case 'ADAM':
+                setGiftName('ADAM STORE discount 30%')
+
+                break
+              case 'VENESTO':
+                setGiftName('VENESTO voucher trị giá 1.500.000 vnđ')
+
+                break
+              case 'TUXEDO':
+                setGiftName('THE TUXEDO discount 20%')
+
+                break
+
+              default:
+                break
+            }
+            // eslint-disable-next-line no-undef
+            $('#exampleModal').modal({
+              show: true,
+            })
+          }
           reset({
             name: '',
             email: '',
@@ -67,107 +108,110 @@ export const RSVP = () => {
     }, TIMEOUT)
   }
   return (
-    <div className='container-fluid py-5' id='rsvp'>
-      <div className='container py-5'>
-        <div className='section-title position-relative text-center'>
-          <h6 className='text-uppercase text-primary mb-3' style={{ letterSpacing: '3px' }}>
-            RSVP
-          </h6>
-          <h1 className='font-secondary display-4'>Join Our Party</h1>
-          <i className='far fa-heart text-dark'></i>
-        </div>
-        <div className='row justify-content-center'>
-          <div className='col-lg-8'>
-            <div className='text-center'>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='form-row'>
-                  <div className='form-group col-sm-6'>
-                    <input
-                      {...register('name')}
-                      id='name'
-                      type='text'
-                      className='form-control bg-secondary border-0 py-4 px-3'
-                      placeholder='Your Name'
-                      required='required'
-                      maxLength={MAX_LENGTH_NAME}
-                    />
+    <>
+      <div className='container-fluid py-5' id='rsvp'>
+        <div className='container py-5'>
+          <div className='section-title position-relative text-center'>
+            <h6 className='text-uppercase text-primary mb-3' style={{ letterSpacing: '3px' }}>
+              RSVP
+            </h6>
+            <h1 className='font-secondary display-4'>Join Our Party</h1>
+            <i className='far fa-heart text-dark'></i>
+          </div>
+          <div className='row justify-content-center'>
+            <div className='col-lg-8'>
+              <div className='text-center'>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <div className='form-row'>
+                    <div className='form-group col-sm-6'>
+                      <input
+                        {...register('name')}
+                        id='name'
+                        type='text'
+                        className='form-control bg-secondary border-0 py-4 px-3'
+                        placeholder='Your Name'
+                        required='required'
+                        maxLength={MAX_LENGTH_NAME}
+                      />
+                    </div>
+                    <div className='form-group col-sm-6'>
+                      <input
+                        {...register('email')}
+                        type='email'
+                        className='form-control bg-secondary border-0 py-4 px-3'
+                        placeholder='Your Email'
+                        required='required'
+                        maxLength={MAX_LENGTH_EMAIL}
+                      />
+                    </div>
                   </div>
-                  <div className='form-group col-sm-6'>
-                    <input
-                      {...register('email')}
-                      type='email'
-                      className='form-control bg-secondary border-0 py-4 px-3'
-                      placeholder='Your Email'
-                      required='required'
-                      maxLength={MAX_LENGTH_EMAIL}
-                    />
-                  </div>
-                </div>
-                <div className='form-row'>
-                  <div className='form-group col-sm-6'>
-                    <select
-                      {...register('numOfGuests')}
-                      className='form-control bg-secondary border-0'
-                      style={{ height: '52px' }}
-                      required
-                    >
-                      <option value='' disabled selected hidden>
-                        Number of Guest
-                      </option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                    </select>
-                  </div>
-                  <div className='form-group col-sm-6'>
-                    <select
-                      {...register('confirm')}
-                      className='form-control bg-secondary border-0'
-                      style={{ height: '52px' }}
-                      required
-                    >
-                      <option
-                        style={{ color: 'gray', opacity: 0.7, display: 'none' }}
-                        value=''
-                        disabled
-                        selected
-                        hidden
+                  <div className='form-row'>
+                    <div className='form-group col-sm-6'>
+                      <select
+                        {...register('numOfGuests')}
+                        className='form-control bg-secondary border-0'
+                        style={{ height: '52px' }}
+                        required
                       >
-                        I'm Attending
-                      </option>
-                      <option>Yes</option>
-                      <option>No</option>
-                    </select>
+                        <option value='' disabled selected hidden>
+                          Number of Guest
+                        </option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    </div>
+                    <div className='form-group col-sm-6'>
+                      <select
+                        {...register('confirm')}
+                        className='form-control bg-secondary border-0'
+                        style={{ height: '52px' }}
+                        required
+                      >
+                        <option
+                          style={{ color: 'gray', opacity: 0.7, display: 'none' }}
+                          value=''
+                          disabled
+                          selected
+                          hidden
+                        >
+                          I'm Attending
+                        </option>
+                        <option>Yes</option>
+                        <option>No</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <div className='form-group'>
-                  <textarea
-                    {...register('message')}
-                    className='form-control bg-secondary border-0 py-2 px-3'
-                    rows='5'
-                    placeholder='Message'
-                    required='required'
-                    maxLength={MAX_LENGTH}
-                  ></textarea>
-                </div>
-                <button className='btn btn-primary font-weight-bold py-3 px-5' type='submit' disabled={loading}>
-                  <span className=' font-weight-bold '>Submit</span>
-                  {loading && (
-                    <div
-                      className='spinner-border text-light position-absolute'
-                      style={{ left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto' }}
-                      role='status'
-                    />
-                  )}
-                </button>
-              </form>
-              {status === STATUS.SUCCESS && <p className='mt-2 text-primary'>Thanks for being awesome!</p>}
-              {status === STATUS.FAILED && <p className='mt-2 text-danger'>Please try to resend it again!</p>}
+                  <div className='form-group'>
+                    <textarea
+                      {...register('message')}
+                      className='form-control bg-secondary border-0 py-2 px-3'
+                      rows='5'
+                      placeholder='Message'
+                      required='required'
+                      maxLength={MAX_LENGTH}
+                    ></textarea>
+                  </div>
+                  <button className='btn btn-primary font-weight-bold py-3 px-5' type='submit' disabled={loading}>
+                    <span className=' font-weight-bold '>Submit</span>
+                    {loading && (
+                      <div
+                        className='spinner-border text-light position-absolute'
+                        style={{ left: 0, right: 0, marginLeft: 'auto', marginRight: 'auto' }}
+                        role='status'
+                      />
+                    )}
+                  </button>
+                </form>
+                {status === STATUS.SUCCESS && <p className='mt-2 text-primary'>Thanks for being awesome!</p>}
+                {status === STATUS.FAILED && <p className='mt-2 text-danger'>Please try to resend it again!</p>}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <PrizeModal giftName={giftName} />
+    </>
   )
 }

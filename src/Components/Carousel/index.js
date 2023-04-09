@@ -13,7 +13,7 @@ export const Carousel = () => {
             <img
               alt=''
               className='position-absolute w-100 h-100'
-              src='img/carousel-1.jpg'
+              src='img/carousel-2.jpg'
               style={{ objectFit: 'cover' }}
             />
             <div className='carousel-caption d-flex flex-column align-items-center justify-content-center'>
